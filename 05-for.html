@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2 v-for="(user,index) in users">{{index}}--{{user.name}}--{{user.age}}--{{user.gender}}</h2>
+    <h2 v-for="(value,key,index) in person">{{index}}--{{value}}--{{key}}</h2>
+</div>
+
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data:{
+            users: [
+                {"name":"黑马","age":13,"gender":"男"},
+                {"name":"传智播客","age":18,"gender":"女"},
+                {"name":"苦丁于","age":31,"gender":"男"}
+            ],
+            person:{"name":"传智汇","age":33,"gender":"男","address":"中国"}
+        },
+        methods:{
+            decrement(){
+                this.num--;
+            }
+        }
+    });
+</script>
+</html>

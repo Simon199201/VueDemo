@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <counter :items="persons"></counter>
+</div>
+
+</body>
+<script type="text/javascript">
+    const counter = {
+        template: `
+            <ul>
+                <li v-for="item in items" :key="item.id">{{item.id}}--{{item.name}}</li>
+            </ul>
+
+        `,
+        data() {
+            return {num: 1}
+        },
+        props: {
+            items: {
+                type: Array,
+                default: []
+            }
+        }
+    };
+    Vue.component("counter", counter);
+    var app = new Vue({
+        el: "#app",
+        data: {
+            color: "red",
+            birthday: 1429032123201,
+            person: {
+                name: "simon"
+            },
+            num: 1,
+            persons: [
+                {
+                    id: 1,
+                    name: "JAVA"
+                },
+                {
+                    id: 2,
+                    name: "PHP"
+                },
+                {
+                    id: 3,
+                    name: "Python"
+                },
+            ]
+        },
+        computed: {
+            showBirthday() {
+                let date = new Date(this.birthday);
+                console.log(date + "\nbirthday is " + this.birthday);
+                return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
+            }
+        }
+    });
+</script>
+</html>

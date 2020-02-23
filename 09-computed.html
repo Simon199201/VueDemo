@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        {{showBirthday}}
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data:{
+            color: "red",
+            birthday: 1429032123201
+        },
+        computed:{
+            showBirthday(){
+                let date = new Date(this.birthday);
+                console.log(date+"\nbirthday is " + this.birthday);
+                return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
+            }
+        }
+    });
+</script>
+</html>

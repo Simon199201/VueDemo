@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button @click="show=!show">点我</button>
+    <div v-if="show">
+        我是一名优秀的程序员
+    </div>
+    <div v-else>
+        我是一名糟糕的程序员
+    </div>
+    <button v-on:click="num++" value="点我">增加</button>
+    <button @click="decrement" value="点我">减少</button>
+    <h2>{{num}}</h2>
+    <div v-show="show">
+        我是一名优秀的企业家
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            show:true,
+            num: 1
+        },
+        methods:{
+            decrement(){
+                this.num--;
+            }
+        }
+    });
+</script>
+</html>

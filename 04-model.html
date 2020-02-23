@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="language" value="Java">Java<br/>
+    <input type="checkbox" v-model="language" value="PHP">PHP<br/>
+    <input type="checkbox" v-model="language" value="Python">Python<br/>
+    <h2>{{language.join(",")}}</h2>
+</div>
+
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            language: []
+        }
+    });
+</script>
+</html>

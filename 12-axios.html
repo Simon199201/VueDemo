@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <counter :title="num" @increment_num1="numPlus" @decrement_num1="numReduce"></counter>
+</div>
+
+</body>
+<script type="text/javascript">
+    const counter = {
+        template: `
+            <div>
+                <h2>{{title}}</h2>
+                <button @click="increment_num">+</button><button @click="decrement_num">-</button>
+            </div>
+
+        `,
+        data() {
+            return {num_component: 1}
+        },
+        props: ["title"],
+        methods:{
+            increment_num(){
+                return this.$emit("increment_num1");
+            },
+            decrement_num(){
+                return this.$emit("decrement_num1");
+            }
+        }
+    };
+    Vue.component("counter", counter);
+    var app = new Vue({
+        el: "#app",
+        data: {
+            color: "red",
+            birthday: 1429032123201,
+            person: {
+                name: "simon"
+            },
+            num: 1
+        },
+        computed: {
+            showBirthday() {
+                let date = new Date(this.birthday);
+                console.log(date + "\nbirthday is " + this.birthday);
+                return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDay();
+            }
+        },
+        methods:{
+            numPlus(){
+                this.num++;
+            },
+            numReduce(){
+                this.num--;
+            }
+        },
+        created() {
+            axios.get();
+        }
+    });
+</script>
+</html>
